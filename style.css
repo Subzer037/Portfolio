@@ -2,12 +2,60 @@ html {
     scroll-behavior: smooth;
 }
 
+html {
+    font-size: 16px; /* Desktop base */
+}
+
+body {
+    font-size: 1rem; /* 16px */
+}
+
+/* GLOBAL HEADING COLORS */
+h1, h2, h3, h4 {
+    color: var(--color-heading);
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.15rem;
+}
+/* HEADING HOVER GLOW (SUBTLE & PROFESSIONAL) */
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover {
+    text-shadow:
+        0 0 6px rgba(0, 255, 225, 0.6),
+        0 0 12px rgba(0, 255, 225, 0.3);
+    transition: text-shadow 0.3s ease;
+}
+
+
+/* Headings scaling */
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.2rem; }
+p, li { font-size: 1rem; line-height: 1.6; }
+
+:root {
+    --color-heading: #00ffe1;   /* Cyber blue */
+    --color-subheading: #7fffd4;
+    --color-text: #ffffff;     /* Main content */
+    --color-muted: #b6fefe;
+    --color-bg-dark: #020617;
+}
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Courier New", monospace;
+    font-family: "JetBrains Mono", monospace;
 }
 
 body {
@@ -17,6 +65,25 @@ body {
 }
 section {
     scroll-margin-top: 90px; /* Adjust if header height changes */
+}
+
+/* GLOBAL CONTENT TEXT */
+p, 
+li, 
+span,
+.project-details li,
+.skill-category-card li,
+.cert-info p {
+    color: var(--color-text);
+}
+
+/* SUBTEXT / META INFORMATION */
+.company,
+.project-tools,
+.cert-label,
+.brand span,
+.status {
+    color: var(--color-subheading);
 }
 
 /* MATRIX */
@@ -146,6 +213,26 @@ section {
     background: rgba(2, 6, 23, 0.85);
     box-shadow: 0 0 20px #00ffe133;
 }
+
+.panel:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 225, 0.25);
+}
+
+/* SECTION SEPARATORS */
+.panel::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin-top: 25px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 255, 225, 0.6),
+        transparent
+    );
+}
+
 
 /* HOME */
 .home {
@@ -339,6 +426,16 @@ section {
 }
 
 /* SKILLS CARD GRID */
+
+.skill-category-card h4 {
+    color: var(--color-heading);
+}
+
+.skill-category-card li {
+    color: var(--color-text);
+}
+
+
 .skills-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -582,7 +679,63 @@ section {
     letter-spacing: 1px;
 }
 
+@media (max-width: 768px) {
+    html {
+        font-size: 18px; /* Bigger text on phones */
+    }
+}
+@media (max-width: 768px) {
 
+    body {
+        display: block;
+    }
+
+    /* Sidebar becomes top bar */
+    .sidebar {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: auto;
+        display: flex;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 2px solid #00ffe1;
+        padding-top: 0;
+        z-index: 999;
+    }
+
+    .sidebar a {
+        flex: 0 0 auto;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+        border-bottom: none;
+        white-space: nowrap;
+    }
+
+    /* Content full width */
+    .content {
+        margin-left: 0;
+        padding: 140px 20px;
+    }
+
+    /* Home section stacked */
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+
+/* BULLET INDICATORS */
+li::before {
+    color: var(--color-heading);
+}
 
 
 
