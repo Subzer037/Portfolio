@@ -49,6 +49,11 @@ p, li { font-size: 1rem; line-height: 1.6; }
     --color-muted: #b6fefe;
     --color-bg-dark: #020617;
 }
+/* MOBILE TEXT SAFETY */
+* {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
 
 
 * {
@@ -231,6 +236,26 @@ span,
         rgba(0, 255, 225, 0.6),
         transparent
     );
+}
+/* FIX PROFILE PHOTO STRAY LINE */
+.home {
+    position: relative;
+}
+
+.profile {
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.profile img {
+    display: block;
+    background: #020617;   /* Same as panel background */
+    box-shadow: none;      /* Remove glow spill */
+}
+
+.home::after {
+    display: none;
 }
 
 
@@ -689,6 +714,16 @@ span,
     body {
         display: block;
     }
+@media (max-width: 768px) {
+    .panel {
+        padding: 18px;
+    }
+
+    p, li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+}
 
     /* Sidebar becomes top bar */
     .sidebar {
@@ -737,5 +772,43 @@ li::before {
     color: var(--color-heading);
 }
 
+/* PROFESSIONAL SUMMARY FORMATTING */
+.summary-panel p {
+    margin-bottom: 15px;
+    line-height: 1.75;
+}
+
+.summary-sub {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #7fffd4;
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+}
+
+.summary-list {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 20px;
+}
+
+.summary-list li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 6px;
+}
+
+.summary-list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #00ffe1;
+}
+
+.summary-cta {
+    margin-top: 15px;
+    font-style: italic;
+    color: #b6fefe;
+}
 
 
